@@ -1,5 +1,7 @@
 from Tkinter import *
 import tkFileDialog
+from ProcessData import DataProcessor
+
 
 class App():
 
@@ -83,5 +85,8 @@ class App():
         # Retrieve input parameters
         input_file_path = self.entry_box_one.get()
         output_file_path = self.entry_box_two.get()
+
+        data_processor = DataProcessor(input_file_path, output_file_path)
+        data_processor.locate_wrecks()
 
 newApp = App()
