@@ -82,25 +82,32 @@
 ## Styling Widgets:
 As you may have notice, widgets appear on the window in the order that the **pack** method was used. In this section, we will learn how to use the **grid** method in order to place widgets where we want on the window.
 
-1. Replace the **pack** method with the **grid** method for both the entry box and button widgets.
+1. Style the entry box widget by assigning a width.
 
   ```python
-  new_entry_box.grid()
+  new_entry_box = Entry(root)
+  new_entry_box['width'] = 50
   ```
 
-  ```python
-  new_button.grid()
-  ```   
-
-2. Place the entry box widget in row 0, column 0.
+2. Replace the **pack** method with the **grid** method and place the entry box widget in row 0, column 0.
 
   ```python
+  new_entry_box = Entry(root)
+  new_entry_box['width'] = 50
   new_entry_box.grid(row=0, column=0)
   ```
 
-3. Place the button widget in row 0, column 1.
+3. Style the button widget by assigning the text.
 
   ```python
+  new_button = Button(root)
+  new_button['text'] = 'Click Me!'
+
+3. Replace the **pack** method with the **grid** method and place the button widget in row 0, column 1
+
+  ```python
+  new_button = Button(root)
+  new_button['text'] = 'Click Me'
   new_button.grid(row=0, column=1)
   ```
 
@@ -112,9 +119,11 @@ As you may have notice, widgets appear on the window in the order that the **pac
   root = Tk()  
 
   new_entry_box = Entry(root)
-  new_entry_box.grid(row=0, column=0)  
+  new_entry_box['width'] = 50
+  new_entry_box.grid(row=0, column=0)
 
   new_button = Button(root)
+  new_button['text'] = 'Click Me!'
   new_button.grid(row=0, column=1)  
 
   root.mainloop()
