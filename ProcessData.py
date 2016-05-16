@@ -1,5 +1,7 @@
 import arcpy
 import csv
+import os
+
 
 class DataProcessor():
 
@@ -26,7 +28,7 @@ class DataProcessor():
 
         arcpy.MakeXYEventLayer_management(self.csv_path,'londec','latdec','tempXY')
 
-        if arcpy.Exists(self.output_path):
-           arcpy.Delete_management(self.output_path)
+        if os.path.isfile(self.output_path):
+           os.remove(self.output_path)
 
         arcpy.CopyFeatures_management('tempXY', self.output_path)
