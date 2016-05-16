@@ -107,7 +107,7 @@ As you may have notice, widgets appear on the window in the order that the **pac
 
   ```python
   new_button = Button(root)
-  new_button['text'] = 'Click Me'
+  new_button['text'] = 'Click Me!'
   new_button.grid(row=0, column=1)
   ```
 
