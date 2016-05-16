@@ -1,5 +1,6 @@
 """
 Kris's Little GIS App
+Kris Johnson
 16 May 2016
 """
 
