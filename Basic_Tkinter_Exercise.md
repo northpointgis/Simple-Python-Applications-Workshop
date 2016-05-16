@@ -104,7 +104,7 @@ As you may have notice, widgets appear on the window in the order that the **pac
   new_button['text'] = 'Click Me!'
   ```
 
-4. Replace the **pack** method with the **grid** method and place the button widget in row 0, column 1
+4. Replace the **pack** method with the **grid** method and place the button widget in row 0, column 1.
 
   ```python
   new_button = Button(root)
