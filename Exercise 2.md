@@ -21,7 +21,6 @@ class App():
 
     # Configure main window
     self.master.title('SAMPLE')
-    self.master.geometry('500x300')  
 
   def config_widgets(self):
 
