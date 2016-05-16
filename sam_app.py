@@ -34,9 +34,7 @@ class App():
 
         input_label = Label(self.master)
         input_label['text'] = 'Input File'
-        # input_label.grid(row=0, column=0)
-        input_label.grid['row'] = 0
-        input_label.grid.column = 0
+        input_label.grid(row=0, column=0)
 
         self.input_entry_box = input_entry_box = Entry(self.master)
         input_entry_box['width'] = 50
@@ -113,6 +111,6 @@ class App():
 
         # Process data
         data_processor = DataProcessor(input_file_path, output_file_path)
-        data_processor.locate_wrecks()
+        data_processor.create_shapefile()
 
 newApp = App()

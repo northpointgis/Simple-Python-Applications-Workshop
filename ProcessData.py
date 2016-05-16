@@ -20,13 +20,13 @@ class DataProcessor():
          for row in reader:
              print row
 
-    def locate_wrecks(self):
+    def create_shapefile(self):
         arcpy.env.workspace = 'in_memory'
 
         if arcpy.Exists('tempXY'):
            arcpy.Delete_management('tempXY')
 
-        arcpy.MakeXYEventLayer_management(self.csv_path,'londec','latdec','tempXY')
+        arcpy.MakeXYEventLayer_management(self.csv_path,'Long','Lat','tempXY')
 
         if os.path.isfile(self.output_path):
            os.remove(self.output_path)
