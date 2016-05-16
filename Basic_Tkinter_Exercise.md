@@ -23,10 +23,10 @@ root.mainloop()
 ```
 4. Run the script.
 ```python
-from Tkinter import *
-#
-root = Tk()
-#
+from Tkinter import *  
+
+root = Tk()  
+
 root.mainloop()
 ```
 
@@ -51,13 +51,13 @@ my_button.pack()
 
 4. Run the script.
 ```python
-from Tkinter import *
-#
-root = Tk()
-#
+from Tkinter import *  
+
+root = Tk()  
+
 my_button = Button(root)
 my_button['text'] = 'Click Here'
-my_button.pack()
-#
+my_button.pack()  
+
 root.mainloop()
 ```
