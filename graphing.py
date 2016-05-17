@@ -15,7 +15,7 @@ import sys
 #     sys.path.insert(0, cmd_folder)
 
 from packages import pygal
-
+from packages.pygal.style import Style
 
 class Graphal():
     """
@@ -24,7 +24,7 @@ class Graphal():
     """
 
     def __init__(self):
-       self.bar_chart = pygal.Bar()
+        pass
 
     def read_csv(self, file_path):
         """
@@ -46,14 +46,14 @@ class Graphal():
         # isolate values from selected field
         out_list = []
         for row in data:
-            for k,v in row.iteritems():
+            for k, v in row.iteritems():
                 if k == summary_field:
                     out_list.append(v)
 
         # get counts into dictionary
         count_dict = {}
         for i in out_list:
-            count_dict[i] = count_dict.get(i,0) + 1
+            count_dict[i] = count_dict.get(i, 0) + 1
 
         # return count dictionary
         return count_dict
@@ -64,7 +64,7 @@ class Graphal():
         :param data:
         :return:
         """
-        for key,value in data.iteritems():
+        for key, value in data.iteritems():
             self.bar_chart.add(key, value)
 
     def graphit(self, summary_field, input_file):
@@ -76,10 +76,27 @@ class Graphal():
         :return: nothing
         """
 
+        # get data from csv
         data_list = self.read_csv(input_file)
 
+        # get counts from selected field
         summarized_data = self.summarize_data(summary_field, data_list)
 
+        # initialize bar chart with options
+        bar_chart_style = Style(legend_font_size=10)
+        bar_chart_options = {
+            'title': 'MPLS Crime Incidents : Count by {0}'.format(summary_field),
+            'y_title': 'Number of Incidents',
+            'x_title': summary_field,
+            'truncate_label': 30,
+            'truncate_legend': 20,
+            'style': bar_chart_style
+        }
+
+        self.bar_chart = pygal.Bar(**bar_chart_options)
+
+        # add data to chart
         self.add_data_to_chart(summarized_data)
 
+        # render chart in browser
         self.bar_chart.render_in_browser()
