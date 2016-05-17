@@ -5,10 +5,10 @@ Kris Johnson
 """
 
 import csv
-import shapefile
+from packages import shapefile
 
 
-class CSV2SHP:
+class CSV2SHP():
     """
     convert csv to shapefile using pyshp library
     """
