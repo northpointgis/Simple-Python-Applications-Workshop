@@ -1,0 +1,9 @@
+README.txt
+setup.cfg
+setup.py
+shapefile.py
+pyshp.egg-info/PKG-INFO
+pyshp.egg-info/SOURCES.txt
+pyshp.egg-info/dependency_links.txt
+pyshp.egg-info/not-zip-safe
+pyshp.egg-info/top_level.txt
