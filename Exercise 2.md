@@ -1,4 +1,4 @@
-# Exercise 2: Using Classes with Tkinter
+# Exercise 2: Keeping it Classy
 ###### In this exercise we will learn how to create a class and do other things.
 
 ## Example Class:
@@ -13,30 +13,22 @@ class App():
   def __init__(self):  
 
     # Execute core methods
-    self.config_app()
-    self.config_widgets()
-    self.run_app()  
+    pass
 
   def config_app(self):  
 
     # Configure main window
-    self.master.title('SAMPLE')
+    pass
 
   def config_widgets(self):
 
-    # Insert widgets
-    new_entry_box = Entry(self.master)
-    new_entry_box['width'] = 50
-    new_entry_box.grid(row=0, column=0)  
-
-    new_button = Button(self.master)
-    new_button['text'] = 'Click Me!'
-    new_button.grid(row=0, column=1)  
+    # Insert widgets  
+    pass
 
   def run_app(self):  
 
     # Enter the Tkinter event loop
-    self.master.mainloop()  
+    pass
 
 new_window = App()
 ```
