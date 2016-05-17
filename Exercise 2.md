@@ -8,7 +8,7 @@ from Tkinter import *
 
 class App():  
 
-  master = Tk() # Create Tk instance  
+  # Create class-level attribute Tk instance  
 
   def __init__(self):  
 
