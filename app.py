@@ -6,6 +6,7 @@ Kris Johnson
 
 from Tkinter import *
 import tkFileDialog
+from csv2shp import CSV2SHP
 
 class App():
 
@@ -21,6 +22,7 @@ class App():
 
         # Assign additional class-level attributes
 
+        self.converter = CSV2SHP()
         self.configure()
         self.run()
 
@@ -66,6 +68,10 @@ class App():
         :return: nothing
         '''
         print "Run!"
+        csv_path = self.input_table_entry.get()
+        shapefile_path = self.output_shapefile_entry.get()
+        self.converter.convert(csv_path, shapefile_path)
+
 
     def open_file(self):
         '''
@@ -74,8 +80,14 @@ class App():
         :return: filepath (string)
         '''
 
+        # Define file dialog options
+        options = {}
+        options['defaultextension'] = '.csv'
+        options['filetypes'] = [('comma seperated value', '.csv')]
+        options['title'] = 'Input csv file:'
+
         # Open file dialog
-        file_path = tkFileDialog.askopenfile()
+        file_path = tkFileDialog.askopenfile(**options)
 
         # Check to make sure a file was specified
         if file_path:
@@ -89,8 +101,14 @@ class App():
         :return:
         '''
 
+        # Define file dialog options
+        options = {}
+        options['defaultextension'] = '.shp'
+        options['filetypes'] = [('shapefile', '.shp')]
+        options['title'] = 'Save output as:'
+
         # Open file dialog
-        file_path = tkFileDialog.asksaveasfile()
+        file_path = tkFileDialog.asksaveasfile(**options)
 
         # Check to make sure a file was specified
         if file_path:
