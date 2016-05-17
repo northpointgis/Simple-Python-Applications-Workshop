@@ -64,3 +64,4 @@ class CSV2SHP():
         #       see https://github.com/GeospatialPython/pyshp/wiki/Map-Projections
         #       for assistance in providing a projection for the data
         self.shp_writer.save(shapefile_path)
+        print 'Done'
