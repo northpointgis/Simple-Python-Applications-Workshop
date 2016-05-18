@@ -30,7 +30,9 @@ if __name__ == '__main__':
 ```
 
 ## General Workflow:
+
 The general workflow remains the same:
+
 1. Import **all** from Tkinter.
 2. Define the class name as **App**.
 3. Create Tk **root** window widget as a class-level attribute.
