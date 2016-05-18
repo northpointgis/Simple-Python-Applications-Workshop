@@ -28,6 +28,7 @@ class App():
 if __name__ == '__main__':
     new_window = App()
 ```
+
 ## General Workflow:
 The general workflow remains the same:
 1. Import **all** from Tkinter.
