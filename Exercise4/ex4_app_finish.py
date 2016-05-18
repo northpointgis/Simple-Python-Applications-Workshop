@@ -1,6 +1,19 @@
+# use this if you want to include modules from a subfolder
+# http://stackoverflow.com/questions/279237/import-a-module-from-a-relative-path
+import os, sys, inspect
+cmd_subfolder = os.path.realpath(
+    os.path.abspath(os.path.join(os.path.split(inspect.getfile(inspect.currentframe()))[0], "packages")))
+if cmd_subfolder not in sys.path:
+    sys.path.insert(0, cmd_subfolder)
+
+# Tkinter imports
 from Tkinter import *
 import tkFileDialog
-from ProcessData import DataProcessor
+
+# import custom modules
+from data_processing.csv2shp import CSV2SHP
+from data_processing.graphing import Graphal
+from data_processing.ProcessData import DataProcessor
 
 
 class App():
@@ -60,7 +73,7 @@ class App():
 
         exec_button = Button(self.master)
         exec_button['text'] = 'EXECUTE'
-        exec_button['command'] = self.gis_process
+        exec_button['command'] = self.execute_tool
         exec_button.grid(row=2,column=1)
 
     def run_app(self):
@@ -103,7 +116,7 @@ class App():
             # Insert file path into entry box
             self.output_entry_box.insert(0, file_path.name)
 
-    def gis_process(self):
+    def execute_tool(self):
 
         # Retrieve input parameters
         input_file_path = self.input_entry_box.get()
@@ -112,5 +125,29 @@ class App():
         # Process data
         data_processor = DataProcessor(input_file_path, output_file_path)
         data_processor.create_shapefile()
+
+    # def run_btn_click(self):
+    #     '''
+    #     Run button click handler
+    #     :return: nothing
+    #     '''
+    #     print "Run!"
+    #     # figure out what user wants based on what they've provided
+    #     csv_path = self.input_table_entry.get()
+    #     shapefile_path = self.output_shapefile_entry.get()
+    #     field_sel_list = self.field_listbox.get(ACTIVE)
+    #
+    #     # check for csv
+    #     if csv_path:
+    #         print 'csv path:', csv_path
+    #
+    #     # check for shapefile
+    #     if shapefile_path:
+    #         print 'shapefile path:', shapefile_path, 'exporting to shapefile...',
+    #         self.converter.convert(csv_path, shapefile_path)
+    #
+    #     # check for graphing
+    #     if len(field_sel_list) > 0:
+    #         self.grapher.graphit(field_sel_list, csv_path)
 
 newApp = App()
