@@ -15,11 +15,6 @@ class App():
     # Execute core methods
     pass
 
-  def config_app(self):
-
-    # Configure main window
-    pass
-
   def config_widgets(self):
 
     # Insert widgets
@@ -30,7 +25,8 @@ class App():
     # Enter the Tkinter event loop
     pass
 
-new_window = App()
+if __name__ == '__main__':
+    new_window = App()
 ```
 ## General Workflow:
 The general workflow remains the same:
