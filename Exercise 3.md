@@ -29,7 +29,7 @@ input_button.grid(row=0, column=2)
 ```
 
 These three components form our simple UI.
-Notice the `command` attribute on the button. Well, the following method ties it all together
+Notice the `command` attribute on the button. Well, the following method ties it all together:
 ```python
 def open_file(self):
 
@@ -53,6 +53,7 @@ This is a good example of how to link in hooks to specific user actions (in this
 
 
 ## Full code for App class:
+Below is the full code for the basic Tkinter class for creating an interface with file I/O.
 ```python
 from Tkinter import *
 import tkFileDialog
@@ -171,16 +172,21 @@ class App():
 newApp = App()
 
 ```
-## General Workflow:
-The general workflow remains the same:
-1. Import **all** from Tkinter.
-2. Define the class name as **App**.
-3. Create Tk **root** window widget as a class-level attribute.
-4. In the **init** method, we run the core methods
-    - configure app
-    - configure widgets
-    - run app
+At this point the app is pretty elementary; it takes a CSV file as input and a shapefile path as the output (the code to perform this conversion is in its own separate class, of course).
+If you're looking to add more features to your app (more gizmos to your swiss army knife) then see below for bonus material.
+![swiss is best](https://www.rei.com/media/product/403141)
 
-#### Take the code from Exercise 1 and slot it into the appropriate places in the above skeleton code template.
-#### Running the code again, it should create the same app, now just a bit more classy behind the scenes.
+
+## Bonus!
+There are lots of resources out there describing the 17+ Tkinter widgets available out-of-the-box.
+We found [this reference](http://effbot.org/tkinterbook/tkinter-index.htm#class-reference) to be one of the easiest to work with.
+We've also included the 170-page compendium on Tkinter from New Mexico Tech if you really want to go to town.
+
+In the context of this application (and as you'll see later), some sensical extensions could include:
+  * list boxes for listing out potential fields for statistical summaries
+  * additional file inputs for implementing a summary by location with a supporting polygon dataset
+  * message boxes for providing adding user feedback
+  * progress bars for the above reason
+
+
 
