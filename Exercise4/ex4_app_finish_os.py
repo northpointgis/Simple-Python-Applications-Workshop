@@ -35,28 +35,32 @@ class App():
 
         self.converter = CSV2SHP_OS()
         self.grapher = Graphal()
-        self.configure()
-        self.run()
+        self.config_app()
+        self.config_widgets()
+        self.run_app()
 
-
-    def configure(self):
+    def config_app(self):
         '''
         Configure app
         :return: nothing
         '''
 
         # set title
-        self.master.title("Kris's Amazing App!")
+        self.master.title("CSV Converter")
 
         # Configure Grid
         self.master.columnconfigure(0, pad=5)
         self.master.columnconfigure(1, pad=5)
 
+    def config_widgets(self):
+        '''
+        Configure widgets
+        :return: nothing
+        '''
+
         # Add labels
         Label(self.master, text='Input Table').grid(row=0, column=0, sticky=W)
         Label(self.master, text='Output Shapefile').grid(row=2, column=0, sticky=W)
-
-        # Add File Inputs
 
         # text entries
         self.input_table_entry = Entry(self.master, width=50)
@@ -70,22 +74,14 @@ class App():
         Button(self.master, text='BROWSE', command=self.save_file) \
             .grid(row=3, column=1, sticky=E)
 
-
         # Add field list box
         Label(self.master, text='Graph Attribute').grid(row=4, column=0, sticky=W)
         self.field_listbox = Listbox(self.master, selectmode=EXTENDED)
         self.field_listbox.grid(row=5, column=0)
 
-
         # Add run button
         Button(self.master, text='RUN', command=self.run_btn_click)\
             .grid(row=6, pady=20, sticky=E)
-
-
-    def display_graphic(self, graphic):
-        window = Toplevel(self.master)
-        graphic_image = ImageTk.PhotoImage(graphic)
-        Label(window, image=graphic_image).pack()
 
     def run_btn_click(self):
         '''
@@ -111,11 +107,6 @@ class App():
         if len(field_sel_list) > 0:
             self.grapher.graphit(field_sel_list, csv_path)
 
-
-
-
-
-
     def open_file(self):
         '''
         Open tk file dialog window
@@ -137,7 +128,6 @@ class App():
             # Insert file path into entry box
             self.input_table_entry.insert(0, file_path.name)
             self.populate_fieldbox(file_path.name)
-
 
     def save_file(self):
         '''
@@ -170,8 +160,6 @@ class App():
         for fld in headers:
             self.field_listbox.insert(END, fld)
 
-
-
     def get_csv_headers(self, input_path):
         """
         import csv data
@@ -182,16 +170,13 @@ class App():
             reader = csv.reader(csvfile)
             return reader.next()
 
-
-
-    def run(self):
+    def run_app(self):
         '''
         Run the main loop
         :return: nothing
         '''
 
         self.master.mainloop()
-
 
 if __name__ == '__main__':
     new_window = App()
