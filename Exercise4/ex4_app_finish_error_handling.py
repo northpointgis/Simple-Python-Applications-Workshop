@@ -18,7 +18,7 @@ import csv
 
 # local custom imports
 from data_processing.graphing import Graphal
-from data_processing.csv2shp_os import CSV2SHP_OS
+from data_processing.csv2shp_error_handling import CSV2SHP_OS
 
 class App():
 
