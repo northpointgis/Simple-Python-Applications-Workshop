@@ -1,8 +1,9 @@
 # Exercise 2: Keeping it Classy
-#### In this exercise we will learn how to create a class and do other things.
+#### In this exercise we will learn the Python class structure and use it with our application
 
 ## Example Class:
-The example below is a class that utilizes all of the code we wrote in Exercise 1, but formatted as a class.
+The example below is an empty class with the structure in place to create the same app as we did in Exercise 1.
+Your task is to take the code from Exercise 1 and slot it into the appropriate places in our new class App. If you need some hints reference the finished example for this exercise.
 ```python
 from Tkinter import *
 
@@ -41,5 +42,4 @@ The general workflow remains the same:
     - Configure widgets
     - Run app
 
-#### Take the code from Exercise 1 and slot it into the appropriate places in the above skeleton code template.
 #### Running the code again, it should create the same app, now just a bit more classy behind the scenes.
