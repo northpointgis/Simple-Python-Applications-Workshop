@@ -8,7 +8,7 @@ import csv
 from packages import shapefile
 
 
-class CSV2SHP():
+class CSV2SHP_OS():
     """
     convert csv to shapefile using pyshp library
     """

@@ -1,8 +1,4 @@
-"""
-Kris's Little GIS App
-Kris Johnson
-16 May 2016
-"""
+'''App 4 Finished'''
 
 # use this if you want to include modules from a subfolder
 # http://stackoverflow.com/questions/279237/import-a-module-from-a-relative-path
@@ -20,8 +16,8 @@ import tkFileDialog
 import csv
 
 # local custom imports
-from csv2shp import CSV2SHP
-from graphing import Graphal
+from data_processing.graphing import Graphal
+from data_processing.csv2shp_os import CSV2SHP_OS
 
 class App():
 
@@ -37,7 +33,7 @@ class App():
 
         # Assign additional class-level attributes
 
-        self.converter = CSV2SHP()
+        self.converter = CSV2SHP_OS()
         self.grapher = Graphal()
         self.configure()
         self.run()
@@ -118,6 +114,8 @@ class App():
 
 
 
+
+
     def open_file(self):
         '''
         Open tk file dialog window
@@ -192,16 +190,8 @@ class App():
         :return: nothing
         '''
 
-
         self.master.mainloop()
 
 
-
-
-def main():
-
-    myApp = App()
-
-
 if __name__ == '__main__':
-    main()
+    new_window = App()
