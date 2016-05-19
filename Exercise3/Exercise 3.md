@@ -57,7 +57,6 @@ Below is the full code for the basic Tkinter class for creating an interface wit
 ```python
 from Tkinter import *
 import tkFileDialog
-from ProcessData import DataProcessor
 
 
 class App():
@@ -116,7 +115,7 @@ class App():
 
         exec_button = Button(self.master)
         exec_button['text'] = 'EXECUTE'
-        exec_button['command'] = self.gis_process
+        exec_button['command'] = self.execute_tool
         exec_button.grid(row=2,column=1)
 
     def run_app(self):
@@ -141,7 +140,6 @@ class App():
             # Insert file path into entry box
             self.input_entry_box.insert(0, file_path.name)
 
-
     def save_file(self):
 
         # Define file dialog options
@@ -159,18 +157,18 @@ class App():
             # Insert file path into entry box
             self.output_entry_box.insert(0, file_path.name)
 
-    def gis_process(self):
+    def execute_tool(self):
 
         # Retrieve input parameters
         input_file_path = self.input_entry_box.get()
         output_file_path = self.output_entry_box.get()
 
-        # Process data
-        data_processor = DataProcessor(input_file_path, output_file_path)
-        data_processor.create_shapefile()
+        # Print input parameters
+        print(input_file_path)
+        print(output_file_path)
 
-newApp = App()
-
+if __name__ == '__main__':
+    new_window = App()
 ```
 At this point the app is pretty elementary; it takes a CSV file as input and a shapefile path as the output (the code to perform this conversion is in its own separate class, of course).
 If you're looking to add more features to your app (more gizmos to your swiss army knife) then see below for bonus material.
@@ -178,14 +176,15 @@ If you're looking to add more features to your app (more gizmos to your swiss ar
 
 
 ## Bonus!
+That's it for the basic interface, but there's certainly more when it comes to Tkinter.  
 There are lots of resources out there describing the 17+ Tkinter widgets available out-of-the-box.
-We found [this reference](http://effbot.org/tkinterbook/tkinter-index.htm#class-reference) to be one of the easiest to work with.
-We've also included the 170-page compendium on Tkinter from New Mexico Tech if you really want to go to town.
+We found [this reference from effbot](http://effbot.org/tkinterbook/tkinter-index.htm#class-reference) to be one of the easiest to work with.
+We've also included the 170-page compendium on Tkinter from New Mexico Tech if you really want to dive in.
 
-In the context of this application (and as you'll see later), some sensical extensions could include:
+Building off this base, some sensical extensions could include:
   * list boxes for listing out potential fields for statistical summaries
   * additional file inputs for implementing a summary by location with a supporting polygon dataset
-  * message boxes for providing adding user feedback
+  * message boxes for providing user feedback 
   * progress bars for the above reason
 
 
