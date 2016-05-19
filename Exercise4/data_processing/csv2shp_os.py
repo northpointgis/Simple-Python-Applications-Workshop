@@ -45,7 +45,6 @@ class CSV2SHP_OS():
         :param shapefile_path: path to output shapefile
         :return: nothing
         """
-
         # read csv to list of dicts
         data_list = self.read_csv(csv_file_path)
 
@@ -65,3 +64,4 @@ class CSV2SHP_OS():
         #       for assistance in providing a projection for the data
         self.shp_writer.save(shapefile_path)
         print 'Done'
+

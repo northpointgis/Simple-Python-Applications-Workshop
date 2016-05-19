@@ -11,6 +11,7 @@ if cmd_subfolder not in sys.path:
 # Tkinter imports
 from Tkinter import *
 import tkFileDialog
+import tkMessageBox
 
 # other imports
 import csv
@@ -92,7 +93,7 @@ class App():
         # figure out what user wants based on what they've provided
         csv_path = self.input_table_entry.get()
         shapefile_path = self.output_shapefile_entry.get()
-        field_sel_list = self.field_listbox.get(ACTIVE)
+        field_sel = self.field_listbox.get(ACTIVE)
 
         # check for csv
         if csv_path:
@@ -104,8 +105,8 @@ class App():
             self.converter.convert(csv_path, shapefile_path)
 
         # check for graphing
-        if len(field_sel_list) > 0:
-            self.grapher.graphit(field_sel_list, csv_path)
+        elif field_sel:
+            self.grapher.graphit(field_sel, csv_path)
 
     def open_file(self):
         '''
