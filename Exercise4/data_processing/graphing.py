@@ -4,15 +4,15 @@ Kris Johnson
 17 May 2016
 """
 
-import csv
-import inspect
-import os
-import sys
+# use this if you want to include modules from a subfolder
+# http://stackoverflow.com/questions/279237/import-a-module-from-a-relative-path
+import os, sys, inspect
+cmd_subfolder = os.path.realpath(
+    os.path.abspath(os.path.join(os.path.split(inspect.getfile(inspect.currentframe()))[0], "../packages")))
+if cmd_subfolder not in sys.path:
+    sys.path.insert(0, cmd_subfolder)
 
-# realpath() will make your script run, even if you symlink it :)
-# cmd_folder = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile(inspect.currentframe()))[0]))
-# if cmd_folder not in sys.path:
-#     sys.path.insert(0, cmd_folder)
+import csv
 
 from packages import pygal
 from packages.pygal.style import Style
