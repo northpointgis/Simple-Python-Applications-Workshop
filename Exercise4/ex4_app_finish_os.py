@@ -105,7 +105,7 @@ class App():
             self.converter.convert(csv_path, shapefile_path)
 
         # check for graphing
-        elif field_sel:
+        if field_sel:
             self.grapher.graphit(field_sel, csv_path)
 
     def open_file(self):
