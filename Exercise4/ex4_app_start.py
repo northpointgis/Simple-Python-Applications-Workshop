@@ -19,14 +19,8 @@ class App():
         # Assign additional class-level attributes
 
         # Execute core methods
-        self.config_app()
         self.config_widgets()
         self.run_app()
-
-    def config_app(self):
-
-        # Configure app
-        self.master.title('SAMPLE')
 
     def config_widgets(self):
 

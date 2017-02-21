@@ -11,9 +11,9 @@ class App():
     # Execute core methods
     pass
 
-  def config_app(self):
+ def config_widgets(self):
 
-    # Configure main window
+    # Configure widgets
     pass
 
   def run_app(self):

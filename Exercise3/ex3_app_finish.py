@@ -10,7 +10,7 @@ class App():
     This is a basic Tkinter app
     '''
 
-    # class-level attributesrr
+    # class-level attributes
 
     master = Tk() # Create Tk instance
 
